@@ -1,138 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Tribute Page</title>
+  <meta charset="UTF-8" />
+  <title>fCC Cat Painting</title>
   <style>
-    #main {
-      background-color: #eee;
-      padding: 2em;
-      margin: 1em;
-      border-radius: 10px;
-    }
-
-    #image {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin: 0 auto;
+    * {
+      box-sizing: border-box;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.5;
-      text-align: center;
-      font-size: 1.6rem;
-      color: #323;
+      background-color: #c9d2fc;
       margin: 0;
       padding: 0;
     }
 
-    #title {
-      font-size: 2.53rem;
-      margin-bottom: -1px;
-      padding-top: 0.1rem;
-      margin-top: 0.1rem;
+    .cat-head {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background: linear-gradient(#5e5e5e 85%, #45454f 100%);
+      width: 205px;
+      height: 180px;
+      border: 1px solid #000;
+      border-radius: 46%;
     }
 
-    p {
-      font-size: 15.25px;
-      margin-top: 20px;
-      margin-bottom: 0px;
+    .cat-left-ear, .cat-right-ear {
+      position: absolute;
+      top: -26px;
+      z-index: 1;
+      border-left: 35px solid transparent;
+      border-right: 35px solid transparent;
+      border-bottom: 70px solid #5e5e5e;
+      border-top-left-radius: 90px;
+      border-top-right-radius: 10px;
     }
 
-    #img-caption {
-      font-size: 16px;
-      padding: 1em;
-      background: #fff;
+    .cat-left-ear {
+      left: -31px;
+      transform: rotate(-45deg);
     }
 
-    #img-div {
-      background-color: white;
-      padding: 1em;
-      margin-left: 5px;
-      margin-right: 5px;
+    .cat-right-ear {
+      left: 163px;
+      transform: rotate(45deg);
     }
 
-    section {
-      font-size: 12.25px;
-      max-width: 650px;
-      margin: 0 auto;
-      display: block;
+    .cat-left-inner-ear, .cat-right-inner-ear {
+      position: absolute;
+      top: 22px;
+      left: -20px;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 40px solid #3b3b4f;
+      border-top-left-radius: 90px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 40%;
+      border-bottom-right-radius: 40%;
     }
 
-    li {
-      margin: 16px 0;
-      font-size: 16px;
+    .cat-left-eye, .cat-right-eye {
+      position: absolute;
+      top: 54px;
+      width: 30px;
+      height: 40px;
+      background-color: #000;
+      border-radius: 60%;
     }
 
-    ul {
-      list-style-type: disc;
-      line-height: 1.6;
-      padding-left: 40px;
-      max-width: 550px;
-      margin: 0 auto 50px auto;
-      text-align: left;
+    .cat-left-eye {
+      left: 39px;
+      transform: rotate(25deg);
     }
 
-    #plus {
-      font-size: 24px;
+    .cat-right-eye {
+      left: 134px;
+      transform: rotate(-25deg);
     }
 
-    #doe {
-      font-size: 20px;
+    .cat-left-inner-eye, .cat-right-inner-eye {
+      position: absolute;
+      top: 8px;
+      width: 10px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 60%;
+    }
+
+    .cat-left-inner-eye {
+      left: 2px;
+      transform: rotate(10deg);
+    }
+
+    .cat-right-inner-eye {
+      left: 18px;
+      transform: rotate(-5deg);
+    }
+
+    .cat-nose {
+      position: absolute;
+      top: 108px;
+      left: 85px;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 20px solid #442c2c;
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      transform: rotate(180deg);
+    }
+
+    .cat-mouth div {
+      width: 30px;
+      height: 50px;
+      border: 2px solid #000;
+      border-radius: 190%/190px 150px 0 0;
+      border-color: black transparent transparent transparent;
+    }
+
+    .cat-mouth-line-left {
+      position: absolute;
+      top: 88px;
+      left: 74px;
+      transform: rotate(170deg);
+    }
+
+    .cat-mouth-line-right {
+      position: absolute;
+      top: 88px;
+      left: 91px;
+      transform: rotate(165deg);
+    }
+
+    .cat-whiskers-left div, .cat-whiskers-right div {
+      width: 40px;
+      height: 1px;
+      background-color: #000;
+    }
+
+    .cat-whisker-left-top {
+      position: absolute;
+      top: 120px;
+      left: 52px;
+      transform: rotate(10deg);
+    }
+
+    .cat-whisker-left-middle {
+      position: absolute;
+      top: 127px;
+      left: 52px;
+      transform: rotate(3deg);
+    }
+
+    .cat-whisker-left-bottom {
+      position: absolute;
+      top: 134px;
+      left: 52px;
+      transform: rotate(-3deg);
+    }
+
+    .cat-whisker-right-top {
+      position: absolute;
+      top: 120px;
+      left: 109px;
+      transform: rotate(-10deg);
+    }
+
+    .cat-whisker-right-middle {
+      position: absolute;
+      top: 127px;
+      left: 109px;
+      transform: rotate(-3deg);
+    }
+
+    .cat-whisker-right-bottom {
+      position: absolute;
+      top: 134px;
+      left: 109px;
+      transform: rotate(3deg);
     }
   </style>
 </head>
 <body>
-  <main id="main">
-    <h1 id="title">Dr. Norman Borlaug</h1>
-    <p>The man who saved a billion lives</p>
+  <main>
+    <div class="cat-head">
+      <div class="cat-ears">
+        <div class="cat-left-ear">
+          <div class="cat-left-inner-ear"></div>
+        </div>
+        <div class="cat-right-ear">
+          <div class="cat-right-inner-ear"></div>
+        </div>
+      </div>
 
-    <figure id="img-div">
-      <img 
-        id="image" 
-        src="https://cdn.freecodecamp.org/testable-projects-fcc/images/tribute-page-main-image.jpg" 
-        alt="Docteur Norman training biologists" 
-      />
-      <figcaption id="img-caption">
-        Dr. Norman Borlaug, third from the left, trains biologists in Mexico on how to increase wheat yields – part of his life-long war on hunger.
-      </figcaption>
-    </figure>
+      <div class="cat-eyes">
+        <div class="cat-left-eye">
+          <div class="cat-left-inner-eye"></div>
+        </div>
+        <div class="cat-right-eye">
+          <div class="cat-right-inner-eye"></div>
+        </div>
+      </div>
 
-    <section id="tribute-info">
-      <h3 id="doe">Here's a time line of Dr. Borlaug's life:</h3>
-      <ul>
-    <li><strong>1914</strong> - Born in Cresco, Iowa</li>
-    <li><strong>1933</strong> - Leaves his family's farm to attend the University of Minnesota, thanks to a Depression era program known as the "National Youth Administration"</li>
-     <li><strong>1935</strong> - Has to stop school and save up more money. Works in the Civilian Conservation Corps, helping starving Americans. "I saw how food changed them", he said. "All of this left scars on me."</li>
-     <li><strong>1937</strong> - Finishes university and takes a job in the US Forestry Service</li>
-     <li><strong>1938</strong> - Marries wife of 69 years Margret Gibson. Gets laid off due to budget cuts. Inspired by Elvin Charles Stakman, he returns to school study under Stakman, who teaches him about breeding pest-resistent plants.</li>
-     <li><strong>1941</strong> - Tries to enroll in the military after the Pearl Harbor attack, but is rejected. Instead, the military asked his lab to work on waterproof glue, DDT to control malaria, disinfectants, and other applied science.</li>
-     <li><strong>1942</strong> - Receives a Ph.D. in Genetics and Plant Pathology</li>
-     <li><strong>1944</strong> - Rejects a 100% salary increase from Dupont, leaves behind his pregnant wife, and flies to Mexico to head a new plant pathology program. Over the next 16 years, his team breeds 6,000 different strains of disease resistent wheat - including different varieties for each major climate on Earth.</li>
-     <li><strong>1945</strong> - Discovers a way to grown wheat twice each season, doubling wheat yields</li>
-     <li><strong>1953</strong> - crosses a short, sturdy dwarf breed of wheat with a high-yeidling American breed, creating a strain that responds well to fertilizer. It goes on to provide 95% of Mexico's wheat.</li>
-     <li><strong>1962</strong> - Visits Delhi and brings his high-yielding strains of wheat to the Indian subcontinent in time to help mitigate mass starvation due to a rapidly expanding population</li>
-     <li><strong>1970</strong> - receives the Nobel Peace Prize</li>
-     <li><strong>1983</strong> - helps seven African countries dramatically increase their maize and sorghum yields</li>
-     <li><strong>1984</strong> - becomes a distinguished professor at Texas A&M University</li>
-     <li><strong>2005</strong> - states "we will have to double the world food supply by 2050." Argues that genetically modified crops are the only way we can meet the demand, as we run out of arable land. Says that GM crops are not inherently dangerous because "we've been genetically modifying plants and animals for a long time. Long before we called it science, people were selecting the best breeds."</li>
-    <li><strong>2009</strong> - dies at the age of 95.</li>
-      </ul>
-      <p>"Borlaug's life and achievement are testimony to the far-reaching contribution that one man's towering intellect, persistence and scientific vision can make to human peace and progress."<br>— Indian Prime Minister Manmohan Singh</p>
-    </section>
+      <div class="cat-nose"></div>
 
-    <p id="plus">
-      If you have time, you should read more about this incredible human being on his 
-      <a 
-        id="tribute-link" 
-        href="https://en.wikipedia.org/wiki/Norman_Borlaug" 
-        target="_blank"
-      >
-        Wikipedia entry
-      </a>.
-    </p>
+      <div class="cat-mouth">
+        <div class="cat-mouth-line-left"></div>
+        <div class="cat-mouth-line-right"></div>
+      </div>
+
+      <div class="cat-whiskers">
+        <div class="cat-whiskers-left">
+          <div class="cat-whisker-left-top"></div>
+          <div class="cat-whisker-left-middle"></div>
+          <div class="cat-whisker-left-bottom"></div>
+        </div>
+        <div class="cat-whiskers-right">
+          <div class="cat-whisker-right-top"></div>
+          <div class="cat-whisker-right-middle"></div>
+          <div class="cat-whisker-right-bottom"></div>
+        </div>
+      </div>
+    </div>
   </main>
 </body>
 </html>
